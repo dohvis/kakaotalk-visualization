@@ -7,4 +7,4 @@
 - jupyter
 
 ## TODO
-- 많음
+- [많음](https://github.com/nerogit/kakaotalk-visualization/issues)
