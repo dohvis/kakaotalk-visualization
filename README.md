@@ -1,6 +1,6 @@
 # kakaotalk-visualization
 
-## Tech stack
+## Using
 - Python
 - SQLAlchemy
 - alembic
