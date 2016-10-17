@@ -2,3 +2,5 @@
 *.pyc
 *.db
 venv/
+*.log
+chats/x*

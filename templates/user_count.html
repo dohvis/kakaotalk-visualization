@@ -1,0 +1,60 @@
+<html>
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+</head>
+<body>
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<script>
+
+    $.get('/api/user', function (res) {
+        $('#container').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: '멤버별 카톡 빈도'
+            },
+            subtitle: {
+                text: '클릭하면 월별로 표시<del>될 예정</del></a>.'
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: '카톡 횟수'
+                }
+
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y}개'
+                    }
+                }
+            },
+
+            tooltip: {
+                //headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}%</b>개<br/>'
+            },
+
+            series: [{
+                name: '이름',
+                colorByPoint: true,
+                data: res
+            }]
+        });
+    })
+    ;
+</script>
+</body>
+</html>
